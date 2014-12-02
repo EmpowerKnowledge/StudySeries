@@ -1,0 +1,10 @@
+
+\renewcommand{\blogsubsubsection}[4]{%
+	\hypertarget{#1}{}
+		\subsubsection{#2}\hyperlink{#3}{\small{Go to Top}}
+}
+
+\Css{.subsubsectionHead{
+  font-size:1.3em;
+  font-weight:bold;
+}}

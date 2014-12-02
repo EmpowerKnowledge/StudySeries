@@ -1,0 +1,137 @@
+
+\setcounter{tocdepth}{3}
+% Margin setup
+\usepackage[ paper=letterpaper,
+		hmargin={0.25in,0.25in},
+		voffset=-0.1in,
+    vmargin=1in,    
+		marginparsep = 0.1in,
+		marginparwidth = 1in,
+		textwidth = 6.25in,
+		footskip = 1.4in
+		]{geometry}
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{colortbl}
+\usepackage{todonotes}
+
+\definecolor{specblue}{RGB}{29, 149, 60}
+\definecolor{lightblue}{RGB}{198, 217, 241}
+\definecolor{lightgray}{RGB}{198, 198, 198}
+
+\usepackage{titlesec}
+
+\ifx\HCode\undefined
+\titleformat{\chapter}{}{}{0em}{\bf\LARGE}
+\titlespacing{\chapter}{0pt}{-1cm}{1pt}  
+\titlespacing{\section}{0pt}{1pt}{1pt}  
+\titlespacing{\subsection}{0pt}{15pt}{1pt}  
+\titlespacing{\subsubsection}{0pt}{15pt}{1pt}  
+
+\titleformat{\section}
+	{\normalfont\LARGE\bfseries\color{specblue}}{{\fontsize{25}{35}\selectfont \thesection.}}{1em}{}
+
+
+% Headers setup
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+\fancypagestyle{IHA-fancy-style}{%
+  \fancyhf{}% Clear header and footer
+	\chead{\Chaptername}
+  \rfoot{
+\begin{tikzpicture}
+		\draw (0, 0) node[inner sep=0] {\includegraphics[width=1cm, height=3cm]{Numbering.png}};
+		\draw (0, 1) node {
+		\textcolor{white}{\Large\thepage}};
+\end{tikzpicture}}
+  \renewcommand{\headrulewidth}{0pt}% Line at the header visible
+  \renewcommand{\footrulewidth}{0pt}% Line at the footer visible
+}
+
+\fancypagestyle{plain}{%
+	\fancyhf{}% Clear header and footer
+	\lhead{}
+	\cfoot{}
+	\rhead{\itshape{\nouppercase{\leftmark}}}
+\rfoot{
+\begin{tikzpicture}
+		\draw (0, 0) node[inner sep=0] {\includegraphics[width=1cm, height=3cm]{Numbering.png}};
+		\draw (0, 1) node {
+		\textcolor{white}{\Large\thepage}};
+\end{tikzpicture}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+	\fi
+
+% Links Setup
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks=true,% hyperlinks will be coloured
+  linkcolor=specblue,% hyperlink text will be green
+  linkbordercolor=gray,% hyperlink border will be red
+}
+
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+
+\newcolumntype{a}{>{\columncolor{blogblue}}c}
+\newcolumntype{b}{>{\columncolor{lightblue}}p{0.6\linewidth}}
+
+\newcolumntype{d}{>{\centering\arraybackslash\columncolor{lightgray}}m{0.2\linewidth}}
+\newcolumntype{e}{>{\centering\arraybackslash\columncolor{lightgray}}m{0.1\linewidth}}
+\newcolumntype{f}{>{\centering\arraybackslash\columncolor{lightgray}}m{0.65\linewidth}}
+\newcolumntype{g}{>{\centering\arraybackslash\columncolor{lightgray}}c}
+
+\newcolumntype{G}{>{\centering\arraybackslash\columncolor{lightblue}}m{0.2\linewidth}}
+\newcolumntype{H}{>{\centering\arraybackslash\columncolor{lightblue}}m{0.1\linewidth}}
+\newcolumntype{I}{>{\arraybackslash\columncolor{lightblue}}m{0.65\linewidth}}
+\newcolumntype{J}{>{\arraybackslash\columncolor{lightblue}}c}
+
+\newcolumntype{K}{>{\arraybackslash\columncolor{LightGray}}m{0.2\linewidth}}
+\newcolumntype{L}{>{\arraybackslash\columncolor{LightGray}}m{0.025\linewidth}}
+\newcolumntype{M}{>{\arraybackslash\columncolor{LightGray}}m{0.65\linewidth}}
+\newcolumntype{N}{>{\arraybackslash\columncolor{lightgray}}m{0.025\linewidth}}
+
+\newcommand{\alignimage}[1]{\raisebox{-.5\height}{#1}}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage[justification=centering]{caption}
+\captionsetup{labelformat=empty,labelsep=none}
+
+\usepackage{color}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\usepackage{listings}
+\lstset{
+    language=[Sharp]C,
+    basicstyle=\footnotesize\mdseries,
+    identifierstyle=\sffamily,
+    keywordstyle=\sffamily\bfseries,
+    commentstyle=\rmfamily,
+    stringstyle=\rmfamily\itshape,
+    showstringspaces=false,
+    tabsize=2,
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={name,xmlns,version,type,serializeAs}% list your attributes here
+}
+
+\newcounter{quotecount}
+\newcommand{\ProTip}[1]{\vspace{1cm}{\textbf{Pro-Tip}. #1}}
