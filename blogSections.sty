@@ -1,0 +1,22 @@
+\usepackage{xifthen}
+\newcommand{\blogchapter}[2]{%
+		\hypertarget{#1}{}\chapter{#2}
+		\vspace{0.5cm}
+}
+
+\newcommand{\blogsection}[4]{%
+	\hypertarget{#1}{}\section{#2}
+	\vspace{0.05cm}
+}
+
+\newcommand{\blogsubsection}[4]{%
+	\hypertarget{#1}{}\subsection{#2}
+	\vspace{0.05cm}
+}
+\newcommand{\blogsubsubsection}[4]{%
+	\hypertarget{#1}{}
+	\begin{tabularx}{\textwidth}{Xr}
+		\subsubsection{\normalsize \textbf{#2}}  & \hyperlink{#3}{\small{Go to Top}} \\
+	\end{tabularx}
+	\vspace{-1.1cm}
+}
